@@ -1,0 +1,243 @@
+<ngx-datatable *ngIf="!gridProperties.isCheckBoxNeed && !gridProperties.isServerSidePagination" class="material"
+    [rows]="gridProperties.rowData" [columnMode]="gridProperties.columnMode"
+    [headerHeight]="gridProperties.headerHeight" [footerHeight]="gridProperties.footerHeight"
+    [rowHeight]="gridProperties.rowHeight" [limit]="gridProperties.limit">
+
+    <div *ngFor="let col of gridProperties.columnDetail">
+        <ngx-datatable-column *ngIf="!col.isAction" [width]="col.width" [resizeable]="col.resizeable"
+            name="{{col.name}}" [sortable]="col.sortable" prop="{{col.prop}}">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value}}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column *ngIf="col.isAction" [width]="col.width" [resizeable]="col.resizeable" name="{{col.name}}"
+            [sortable]="col.sortable" prop="{{col.prop}}">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span *ngFor="let icon of col.icons">
+                    <span (click)="giveData(row,icon)">
+                        <button>click</button>
+                    </span>&nbsp;
+                </span>
+            </ng-template>
+        </ngx-datatable-column>
+
+    </div>
+
+</ngx-datatable>
+
+
+
+<ngx-datatable *ngIf="!gridProperties.isCheckBoxNeed && gridProperties.isServerSidePagination" class="material"
+    [rows]="gridProperties.rowData" [columnMode]="gridProperties.columnMode"
+    [headerHeight]="gridProperties.headerHeight" [footerHeight]="gridProperties.footerHeight"
+    [rowHeight]="gridProperties.rowHeight" [externalPaging]="true" [count]="page.totalElements"
+    [offset]="page.pageNumber" [limit]="page.size" (page)='setPage($event)'>
+    <div *ngFor="let col of gridProperties.columnDetail">
+
+        <ngx-datatable-column *ngIf="!col.isAction" [width]="col.width" [resizeable]="col.resizeable"
+            name="{{col.name}}" [sortable]="col.sortable" prop="{{col.prop}}">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column *ngIf="col.isAction" [width]="col.width" [resizeable]="col.resizeable" name="{{col.name}}"
+            [sortable]="col.sortable" prop="{{col.prop}}">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span *ngFor="let icon of col.icons">
+                    <span (click)="giveData(row,icon)">
+                        <button>click</button>
+                    </span>&nbsp;
+                </span>
+            </ng-template>
+        </ngx-datatable-column>
+    </div>
+
+</ngx-datatable>
+
+<ngx-datatable *ngIf="gridProperties.isCheckBoxNeed && !gridProperties.isServerSidePagination" class="material"
+    [rows]="gridProperties.rowData" [columnMode]="gridProperties.columnMode"
+    [headerHeight]="gridProperties.headerHeight" [footerHeight]="gridProperties.footerHeight"
+    [rowHeight]="gridProperties.rowHeight" [limit]="gridProperties.limit" 
+    [selectionType]="'checkbox'"
+    [selected]="selected" (select)='onSelect($event)'>
+    <ngx-datatable-column *ngIf="gridProperties.isCheckBoxNeed" [width]="30" [sortable]="false" [canAutoResize]="false"
+        [draggable]="false" [resizeable]="false" [headerCheckboxable]="true" [checkboxable]="true" prop="selected">
+    </ngx-datatable-column>
+
+    <div *ngFor="let col of gridProperties.columnDetail">
+
+
+        <ngx-datatable-column *ngIf="!col.isAction" [width]="col.width" [resizeable]="col.resizeable"
+            name="{{col.name}}" [sortable]="col.sortable" prop="{{col.prop}}">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value}}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column *ngIf="col.isAction" [width]="col.width" [resizeable]="col.resizeable" name="{{col.name}}"
+            [sortable]="col.sortable" prop="{{col.prop}}">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span *ngFor="let icon of col.icons">
+                    <span (click)="giveData(row,icon)">
+                        <button>click</button>
+                    </span>&nbsp;
+                </span>
+            </ng-template>
+        </ngx-datatable-column>
+
+    </div>
+
+</ngx-datatable>
+
+
+
+<ngx-datatable *ngIf="gridProperties.isCheckBoxNeed && gridProperties.isServerSidePagination" class="material"
+    [rows]="gridProperties.rowData" [columnMode]="gridProperties.columnMode"
+    [headerHeight]="gridProperties.headerHeight" [footerHeight]="gridProperties.footerHeight"
+    [rowHeight]="gridProperties.rowHeight" 
+    [externalPaging]="true" [count]="page.totalElements"
+    [offset]="page.pageNumber" [limit]="page.size" (page)='setPage($event)'
+    [selectionType]="'checkbox'"
+    [selected]="selected" (select)='onSelect($event)'>
+
+    <ngx-datatable-column *ngIf="gridProperties.isCheckBoxNeed" [width]="30" [sortable]="false" [canAutoResize]="false"
+        [draggable]="false" [resizeable]="false" [headerCheckboxable]="true" [checkboxable]="true" prop="selected">
+    </ngx-datatable-column>
+
+    <div *ngFor="let col of gridProperties.columnDetail">
+
+        <ngx-datatable-column *ngIf="!col.isAction" [width]="col.width" [resizeable]="col.resizeable"
+            name="{{col.name}}" [sortable]="col.sortable" prop="{{col.prop}}">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column *ngIf="col.isAction" [width]="col.width" [resizeable]="col.resizeable" name="{{col.name}}"
+            [sortable]="col.sortable" prop="{{col.prop}}">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <span *ngFor="let icon of col.icons">
+                    <span (click)="giveData(row,icon)">
+                        <button>click</button>
+                    </span>&nbsp;
+                </span>
+            </ng-template>
+        </ngx-datatable-column>
+    </div>
+
+</ngx-datatable>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ngx-datatable-column [width]="200" [resizeable]="false" name="First Namedkdh" [sortable]="true" prop="firstName">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+
+
+    <ngx-datatable-column [width]="200" [resizeable]="false" [sortable]="true" prop="lastName">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column [width]="200" [resizeable]="false" [sortable]="true" prop="country">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column [width]="200" [resizeable]="false" [sortable]="true" prop="city">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+
+
+    <ngx-datatable-column [width]="200" [resizeable]="false" [sortable]="true" prop="gender">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column [width]="200" [resizeable]="false" [sortable]="true" prop="age">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column> -->
+<!-- <ngx-datatable-column [width]="400" name="Actions" [sortable]="false">
+
+
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <span (click)="editData(row)">
+                <button>click</button>
+            </span>
+            &nbsp;
+            <span (click)="deleteData(row)">
+                <button>click</button>
+            </span>
+            &nbsp;
+            <span (click)="deleteData(row)">
+                <button>click</button>
+            </span>
+            &nbsp;
+            <span (click)="deleteData(row)">
+                <button>click</button>
+            </span>
+            &nbsp;
+            <span (click)="deleteData(row)">
+                <button>click</button>
+            </span>
+
+        </ng-template>
+    </ngx-datatable-column> -->
