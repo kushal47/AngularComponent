@@ -1,0 +1,13 @@
+<jqxGrid #myGrid [width]="jqGridDataMain.width" [source]="dataAdapter" [columns]="jqGridDataMain.columns"
+    [pageable]="jqGridDataMain.isPageable" [autoheight]="jqGridDataMain.isAutoheight"
+    [sortable]="jqGridDataMain.isSortable" [altrows]="jqGridDataMain.isAltRow" [enabletooltips]="true"
+    [editable]="jqGridDataMain.iseditable" [selectionmode]="jqGridDataMain.selectionmode"
+    [columngroups]="jqGridDataMain.columngroups" [showtoolbar]="jqGridDataMain.isShowToolbar"
+    [rendertoolbar]="rendertoolbar" [showstatusbar]="jqGridDataMain.isShowStatusBar" [renderstatusbar]="renderstatusbar"
+    [filterable]="jqGridDataMain.isFilterable" [autoshowfiltericon]="jqGridDataMain.isautoshowfiltericon"
+    [ready]="ready" [showfilterrow]="jqGridDataMain.isshowfilterrow" [pagermode]="jqGridDataMain.pagermode"
+    [groupable]="jqGridDataMain.isGroupable" (onRowselect)="myGridOnRowSelect($event)"
+    (onRowunselect)="myGridOnRowUnselect($event)" (onPagesizechanged)="onPageSizeChanged($event)"
+    (onPagechanged)="onPageChanged($event)" (onCellbeginedit)="cellBeginEditEvent($event)"
+    (onCellendedit)="cellEndEditEvent($event)">
+</jqxGrid>

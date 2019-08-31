@@ -38,7 +38,6 @@ export class GridComponent implements OnChanges, OnInit {
         this.giveData({ pageNumber: this.page.pageNumber + 1, pageSize: this.page.size, total: this.page.totalElements }, 'PageChange');
     }
     onSelect(row) {
-        debugger;
         this.giveData(row.selected, "Selection");
     }
     giveData = (data, action: string) => {

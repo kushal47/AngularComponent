@@ -18,6 +18,8 @@
   </li>
 </ul> -->
 
+<!-- <app-grid-component [gridProperties]="gridData" (getDataFromGrid)="gridDatabyRow($event)">
+</app-grid-component> -->
 
-<app-grid-component [gridProperties]="gridData" (getDataFromGrid)="gridDatabyRow($event)">
-</app-grid-component>
+<app-jqgrid-component [jqGridDataMain]="jqGridDataFromBackEnd" (gridDataToEmit)="jqGridTakeActions($event)">
+</app-jqgrid-component>
